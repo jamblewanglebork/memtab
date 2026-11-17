@@ -1,0 +1,33 @@
+{
+  "name": "memtab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && node scripts/build.mjs",
+    "test": "tsx --test tests/*.test.ts",
+    "test:browser": "node scripts/browser-test.mjs",
+    "test:model": "node scripts/browser-test.mjs --model"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.3.2",
+    "idb": "^8.0.3",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "fake-indexeddb": "^6.0.0",
+    "playwright-core": "^1.51.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.0"
+  }
+}

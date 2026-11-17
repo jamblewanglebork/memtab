@@ -1,0 +1,417 @@
+{
+  "source": "results.csv",
+  "sha256": "e14d247b514fd09e25ab3698bf458a19bdc7de7c2881628acfab71bc3e39b781",
+  "timestamp": "2026-11-16T09:29:32.208Z",
+  "modelAlreadyLoaded": "false",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+  "rawMetricMacros": {
+    "mDocuments": {
+      "key": [
+        "environment",
+        "documents",
+        ""
+      ],
+      "value": "240"
+    },
+    "mQueries": {
+      "key": [
+        "environment",
+        "queries",
+        ""
+      ],
+      "value": "40"
+    },
+    "mDimensions": {
+      "key": [
+        "environment",
+        "dimensions",
+        ""
+      ],
+      "value": "384"
+    },
+    "mConcurrency": {
+      "key": [
+        "environment",
+        "hardware_concurrency",
+        ""
+      ],
+      "value": "12"
+    },
+    "mInitialization": {
+      "key": [
+        "model",
+        "initialization",
+        ""
+      ],
+      "value": "599.5"
+    },
+    "mDocMean": {
+      "key": [
+        "document_inference",
+        "meanMs",
+        ""
+      ],
+      "value": "46.0412499991556"
+    },
+    "mDocMedian": {
+      "key": [
+        "document_inference",
+        "p50Ms",
+        ""
+      ],
+      "value": "43.60000002384186"
+    },
+    "mDocTail": {
+      "key": [
+        "document_inference",
+        "p95Ms",
+        ""
+      ],
+      "value": "62.90000003576279"
+    },
+    "mQueryMean": {
+      "key": [
+        "query_inference",
+        "meanMs",
+        ""
+      ],
+      "value": "15.72749999910593"
+    },
+    "mQueryMedian": {
+      "key": [
+        "query_inference",
+        "p50Ms",
+        ""
+      ],
+      "value": "15.900000035762787"
+    },
+    "mQueryTail": {
+      "key": [
+        "query_inference",
+        "p95Ms",
+        ""
+      ],
+      "value": "18.899999976158142"
+    },
+    "mInitialHeap": {
+      "key": [
+        "memory",
+        "initial_js_heap",
+        ""
+      ],
+      "value": "10.534808158874512"
+    },
+    "mPeakHeap": {
+      "key": [
+        "memory",
+        "peak_observed_js_heap",
+        ""
+      ],
+      "value": "43.436079025268555"
+    },
+    "mThreshold": {
+      "key": [
+        "clustering",
+        "threshold",
+        ""
+      ],
+      "value": "0.45"
+    },
+    "mClusters": {
+      "key": [
+        "clustering",
+        "groups",
+        ""
+      ],
+      "value": "38"
+    },
+    "mNMI": {
+      "key": [
+        "clustering",
+        "nmi",
+        ""
+      ],
+      "value": "0.729755834733093"
+    },
+    "mClusteringTime": {
+      "key": [
+        "clustering",
+        "latencyMs",
+        ""
+      ],
+      "value": "89.80000001192093"
+    },
+    "mFullTokens": {
+      "key": [
+        "tokens",
+        "full",
+        ""
+      ],
+      "value": "20617"
+    },
+    "mPrunedTokens": {
+      "key": [
+        "tokens",
+        "pruned",
+        ""
+      ],
+      "value": "10109"
+    },
+    "mTokenReduction": {
+      "key": [
+        "tokens",
+        "reductionPercent",
+        ""
+      ],
+      "value": "50.96764805742834"
+    },
+    "mFloatBytes": {
+      "key": [
+        "retrieval",
+        "vectorBytes",
+        "float32"
+      ],
+      "value": "368640"
+    },
+    "mFloatScanMean": {
+      "key": [
+        "retrieval",
+        "scanMeanMs",
+        "float32"
+      ],
+      "value": "0.29450000047683716"
+    },
+    "mFloatScanMedian": {
+      "key": [
+        "retrieval",
+        "scanP50Ms",
+        "float32"
+      ],
+      "value": "0.30000001192092896"
+    },
+    "mFloatScanTail": {
+      "key": [
+        "retrieval",
+        "scanP95Ms",
+        "float32"
+      ],
+      "value": "0.5"
+    },
+    "mFloatRecallOne": {
+      "key": [
+        "retrieval",
+        "recallAt1",
+        "float32"
+      ],
+      "value": "0.13333333333333333"
+    },
+    "mFloatRecallFive": {
+      "key": [
+        "retrieval",
+        "recallAt5",
+        "float32"
+      ],
+      "value": "0.6666666666666665"
+    },
+    "mFloatRecallTen": {
+      "key": [
+        "retrieval",
+        "recallAt10",
+        "float32"
+      ],
+      "value": "0.9375000000000007"
+    },
+    "mFloatHitOne": {
+      "key": [
+        "retrieval",
+        "hitAt1",
+        "float32"
+      ],
+      "value": "0.8000000000000004"
+    },
+    "mFloatHitFive": {
+      "key": [
+        "retrieval",
+        "hitAt5",
+        "float32"
+      ],
+      "value": "0.9500000000000005"
+    },
+    "mFloatMRR": {
+      "key": [
+        "retrieval",
+        "mrrAt10",
+        "float32"
+      ],
+      "value": "0.8695833333333337"
+    },
+    "mIntBytes": {
+      "key": [
+        "retrieval",
+        "vectorBytes",
+        "int8"
+      ],
+      "value": "92160"
+    },
+    "mIntScanMean": {
+      "key": [
+        "retrieval",
+        "scanMeanMs",
+        "int8"
+      ],
+      "value": "0.5985000002384185"
+    },
+    "mIntScanMedian": {
+      "key": [
+        "retrieval",
+        "scanP50Ms",
+        "int8"
+      ],
+      "value": "0.5999999642372131"
+    },
+    "mIntScanTail": {
+      "key": [
+        "retrieval",
+        "scanP95Ms",
+        "int8"
+      ],
+      "value": "1"
+    },
+    "mIntRecallOne": {
+      "key": [
+        "retrieval",
+        "recallAt1",
+        "int8"
+      ],
+      "value": "0.13333333333333333"
+    },
+    "mIntRecallFive": {
+      "key": [
+        "retrieval",
+        "recallAt5",
+        "int8"
+      ],
+      "value": "0.6666666666666665"
+    },
+    "mIntRecallTen": {
+      "key": [
+        "retrieval",
+        "recallAt10",
+        "int8"
+      ],
+      "value": "0.9333333333333339"
+    },
+    "mIntHitOne": {
+      "key": [
+        "retrieval",
+        "hitAt1",
+        "int8"
+      ],
+      "value": "0.8000000000000004"
+    },
+    "mIntHitFive": {
+      "key": [
+        "retrieval",
+        "hitAt5",
+        "int8"
+      ],
+      "value": "0.9500000000000005"
+    },
+    "mIntMRR": {
+      "key": [
+        "retrieval",
+        "mrrAt10",
+        "int8"
+      ],
+      "value": "0.8645833333333337"
+    },
+    "mBinaryBytes": {
+      "key": [
+        "retrieval",
+        "vectorBytes",
+        "binary"
+      ],
+      "value": "11520"
+    },
+    "mBinaryScanMean": {
+      "key": [
+        "retrieval",
+        "scanMeanMs",
+        "binary"
+      ],
+      "value": "0.07499999970197678"
+    },
+    "mBinaryScanMedian": {
+      "key": [
+        "retrieval",
+        "scanP50Ms",
+        "binary"
+      ],
+      "value": "0.09999996423721313"
+    },
+    "mBinaryScanTail": {
+      "key": [
+        "retrieval",
+        "scanP95Ms",
+        "binary"
+      ],
+      "value": "0.19999998807907104"
+    },
+    "mBinaryRecallOne": {
+      "key": [
+        "retrieval",
+        "recallAt1",
+        "binary"
+      ],
+      "value": "0.10833333333333332"
+    },
+    "mBinaryRecallFive": {
+      "key": [
+        "retrieval",
+        "recallAt5",
+        "binary"
+      ],
+      "value": "0.5291666666666668"
+    },
+    "mBinaryRecallTen": {
+      "key": [
+        "retrieval",
+        "recallAt10",
+        "binary"
+      ],
+      "value": "0.8041666666666671"
+    },
+    "mBinaryHitOne": {
+      "key": [
+        "retrieval",
+        "hitAt1",
+        "binary"
+      ],
+      "value": "0.6500000000000002"
+    },
+    "mBinaryHitFive": {
+      "key": [
+        "retrieval",
+        "hitAt5",
+        "binary"
+      ],
+      "value": "0.8250000000000004"
+    },
+    "mBinaryMRR": {
+      "key": [
+        "retrieval",
+        "mrrAt10",
+        "binary"
+      ],
+      "value": "0.7532142857142857"
+    }
+  },
+  "figureConversions": {
+    "storage": "bytes / 1024, axis labeled KiB",
+    "latencies": "ms unchanged",
+    "quality": "ratios unchanged"
+  },
+  "physicalRAM": "not recorded in the supplied CSV",
+  "cpuModel": "not recorded in the supplied CSV",
+  "coldDownloadCacheState": "not recorded in the supplied CSV"
+}

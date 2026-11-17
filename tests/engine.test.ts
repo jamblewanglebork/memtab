@@ -1,0 +1,38 @@
+import 'fake-indexeddb/auto';
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { MemoryEngine } from '../src/offscreen/engine';
+import { normalize } from '../src/shared/quantization';
+import { DEFAULT_SETTINGS } from '../src/shared/types';
+import { getPages } from '../src/offscreen/db';
+
+test('durable ingestion, metadata merge, precision migration, privacy deletion, and clear during inference', async () => {
+  let embeddings = 0;
+  const engine = new MemoryEngine(async text => { embeddings++; return normalize(Float32Array.from({ length: 384 }, (_, i) => Math.sin(i + text.length))); });
+  await engine.ready; await engine.clear();
+  await engine.configure({ ...DEFAULT_SETTINGS, semanticEnabled: true });
+  await engine.ingest([{ url: 'https://example.com/page#first', title: 'Heap debugging', text: 'Captured article about allocation ownership and memory leaks.', source: 'history', captured: true }]);
+  await engine.indexPending();
+  assert.equal(engine.status().embedded, 1); assert.equal(engine.status().vectorBytes, 384);
+  await engine.ingest([{ url: 'https://example.com/page', title: 'Heap debugging', text: 'Only bookmark metadata', source: 'bookmark' }]);
+  assert.equal(engine.pages.get('https://example.com/page')!.text, 'Captured article about allocation ownership and memory leaks.');
+  assert.equal(engine.status().pending, 0);
+  await engine.indexPending(); assert.equal(embeddings, 1);
+  const reopened = new MemoryEngine(async () => new Float32Array(384)); await reopened.ready;
+  assert.equal(reopened.pages.size, 1); assert.ok(reopened.pages.get('https://example.com/page')!.vector instanceof Int8Array);
+  await engine.configure({ ...DEFAULT_SETTINGS, semanticEnabled: true, mode: 'binary' });
+  await engine.indexPending(); assert.equal(engine.status().vectorBytes, 48); assert.equal(embeddings, 2);
+  await engine.removeSource('history', ['https://example.com/page#different']);
+  const bookmarked = engine.pages.get('https://example.com/page')!;
+  assert.deepEqual(bookmarked.sources, ['bookmark']); assert.equal(bookmarked.captured, false); assert.equal(bookmarked.vector, undefined);
+  await engine.configure({ ...DEFAULT_SETTINGS, excludedHosts: ['example.com'] }); assert.equal(engine.pages.size, 0);
+  await engine.ingest([{ url: 'https://sub.example.com/test', title: 'Excluded', text: 'Should not store', source: 'history' }]); assert.equal(engine.pages.size, 0);
+  let release!: (value: Float32Array) => void;
+  const suspended = new MemoryEngine(() => new Promise(resolve => { release = resolve; }));
+  await suspended.ready; await suspended.configure({ ...DEFAULT_SETTINGS, semanticEnabled: true });
+  await suspended.ingest([{ url: 'https://other.test/', title: 'Pending', text: 'Waiting for inference', source: 'history' }]);
+  const indexing = suspended.indexPending();
+  await new Promise(resolve => setTimeout(resolve, 0));
+  await suspended.clear(); release(new Float32Array(384)); await indexing;
+  assert.equal(suspended.pages.size, 0); assert.equal((await getPages()).length, 0);
+});
